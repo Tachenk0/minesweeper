@@ -87,3 +87,23 @@ docker run --rm -v "$(pwd)/data:/app/data" minesweeper --input /app/data/sample_
 | `--rows` | Количество строк | `9` |
 | `--cols` | Количество столбцов | `9` |
 | `--mines` | Количество мин | `10` |
+
+Запуск тестов
+```
+# Запуск всех тестов
+python -m pytest tests/ -v
+
+# Запуск с покрытием кода
+python -m pytest tests/ --cov=src --cov-report=html
+
+# Запуск в Docker
+docker run --rm --entrypoint python minesweeper -m pytest tests/ -v
+```
+Зависимости
+Python ≥ 3.12
+
+Tkinter (встроен в Python)
+
+pytest ≥ 7.0.0 (для тестирования)
+
+pytest-cov ≥ 4.0.0 (для покрытия кода)
